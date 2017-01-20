@@ -47,7 +47,7 @@ public class BaseMongoJackAccessor<T> {
 		getCollection().removeById(id);
 	}
 
-	public List<T> loadPaginatedList(int startIndex, int count, Optional<OrderBy> sortOrder, Optional<String> sortBy, DBObject query, ProjectionBuilder projection) {
+	protected List<T> loadPaginatedList(int startIndex, int count, Optional<OrderBy> sortOrder, Optional<String> sortBy, DBObject query, ProjectionBuilder projection) {
 		DBCursor<T> cursor = getCollection().
 					find(query, projection).
 					limit(count).
